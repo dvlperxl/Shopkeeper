@@ -1,0 +1,86 @@
+//
+//  PrefixHeader.pch
+//  Shopkeeper
+//
+//  Created by CaiMing on 2017/10/12.
+//  Copyright © 2017年 dongyin. All rights reserved.
+//
+
+#import "CMRouter.h"
+#import "Singleton.h"
+#import "UIView+Frame.h"
+#import "UIImageView+KKWebImage.h"
+#import "UIImage+ImageWithColor.h"
+#import "UIColor+HexColor.h"
+#import <AFNetworking/AFNetworking.h>
+#import "NSObject+JSONSerialization.h"
+#import "KKProgressHUD.h"
+#import "KKToast.h"
+#import "UIBarButtonItem+hn_extension.h"
+#import <Masonry/Masonry.h>
+
+#import "APIService+User.h"
+#import "NSObject+KaKaModel.h"
+#import "KKTableView.h"
+#import "AttributedString.h"
+#import "KKTextField.h"
+#import "NSString+StringTransform.h"
+#import "DeviceMessage.h"
+#import "KKAlertView.h"
+#import "Mobile.h"
+#import "KeyChain.h"
+#import "HNReactView.h"
+#import "UIScrollView+Category.h"
+#import "NSString+hn_extension.h"
+
+#import "APIService+Stores.h"
+#import "APIService+Util.h"
+#import "APIService+Work.h"
+#import "APIService+TradeManage.h"
+#import "APIService+StockManage.h"
+#import "APIService+GoodsManage.h"
+#import "APIService+RecipePackage.h"
+#import "APIService+Mall.h"
+#import "APIService+Distibutor.h"
+
+#import "AppConfig.h"
+#import "NSObject+SwizzleMethod.h"
+#import "KKLoadFailureAndNotResultView.h"
+#import "BaseCellModel.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <MJRefresh/MJRefresh.h>
+
+#import "Calculate.h"
+
+#ifdef DEBUG
+
+#define NSLog(format, ...) NSLog((@"%s [Line %d]"format), __PRETTY_FUNCTION__,__LINE__,## __VA_ARGS__)
+
+#else
+
+#ifdef Dev
+
+#define NSLog(format, ...) NSLog((@"%s [Line %d]"format), __PRETTY_FUNCTION__,__LINE__,## __VA_ARGS__)
+
+#else
+
+#define NSLog(format, ...)
+
+#endif
+
+#endif
+
+#define AMOUNTSTRING(amount) [Calculate amountDisplayCalculateTwoFloat:amount]
+
+#define SCREEN_SCALE [UIScreen mainScreen].scale
+#define APPFONT(size)  [UIFont systemFontOfSize:size]
+#define APPFONT_Regular(fontSize) [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]
+#define APPBOLDFONT(size) [UIFont boldSystemFontOfSize:size]
+#define Image(name) [UIImage imageNamed:name]
+#define STRINGWITHOBJECT(obj) [NSString stringWithFormat:@"%@",obj]
+#define SCREEN_BOUNDS [ [ UIScreen mainScreen ] bounds ]
+#define SCREEN_WIDTH [ [ UIScreen mainScreen ] bounds ].size.width
+#define SCREEN_HEIGHT [ [ UIScreen mainScreen ] bounds ].size.height
+#define STRING(str1,str2) [NSString stringWithFormat:@"%@%@",str1,str2]
+#define APP_SHORT_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define SINGLE_LINE_WIDTH           (1.0 / [UIScreen mainScreen].scale)
